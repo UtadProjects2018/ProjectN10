@@ -39,7 +39,7 @@ template <class T>
 unsigned int TListSystem::TList<T>::Push(T psz)
 {
     TNode *node;
-    node = TListSystem::TList<T>::Node();
+    node = new TNode();
     node->tlistData = psz;
     
     if(!lastNode)
@@ -89,12 +89,21 @@ const T TListSystem::TList<T>::Pop()
         firstNode = nullptr;
         lastNode  = nullptr;
         selectedNode = nullptr;
+
+        delete firstNode;
+        delete lastNode;
+        delete selectedNode;
     }
     else if (m_size == 1)
     {
         firstNode = nullptr;
         lastNode  = nullptr;
         selectedNode = nullptr;
+
+        delete firstNode;
+        delete lastNode;
+        delete selectedNode;
+
         m_size --;
     }
     else
@@ -105,7 +114,7 @@ const T TListSystem::TList<T>::Pop()
     
     if (!lastNode)
     {
-        return 0;
+        return NULL;
     }
     else
     {
