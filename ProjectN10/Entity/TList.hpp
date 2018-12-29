@@ -38,6 +38,9 @@ namespace TListSystem
             T tlistData;
             TNode *nextNode, *previousNode;
         } *firstNode, *lastNode, *selectedNode;
+        
+        void InitNodes();
+        void DeleteNodes();
     };
 }
 

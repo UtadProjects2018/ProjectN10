@@ -27,14 +27,7 @@ int main(int argc, const char * argv[]) {
     
     for (int i = 0; i < charValue.Size() ; i++)
     {
-        if (i == 0)
-        {
-            printf("TList Value %s\n", charValue.First());
-        }
-        else
-        {
-            printf("TList Value %s\n", charValue.Next());
-        }
+        printf("TList Value %s\n", i == 0 ? charValue.First() : charValue.Next());
     }
     
     charValue.Reset();
@@ -55,14 +48,7 @@ int main(int argc, const char * argv[]) {
     
     for (int i = 0; i < intValue.Size() ; i++)
     {
-        if (i == 0)
-        {
-            printf("TList Value %d\n", intValue.First());
-        }
-        else
-        {
-            printf("TList Value %d\n", intValue.Next());
-        }
+        printf("TList Value %d\n", i == 0 ? intValue.First() : intValue.Next());
     }
     
     intValue.Reset();

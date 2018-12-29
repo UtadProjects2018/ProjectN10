@@ -11,22 +11,13 @@
 template <class T>
 TListSystem::TList<T>::TList()
 {
-    firstNode = nullptr;
-    lastNode  = nullptr;
-    selectedNode = nullptr;
-    m_size = 0;
+    InitNodes();
 }
 
 template <class T>
 TListSystem::TList<T>::~TList()
 {
-    delete firstNode;
-    delete lastNode;
-    delete selectedNode;
-    
-    firstNode = nullptr;
-    lastNode  = nullptr;
-    selectedNode = nullptr;
+    DeleteNodes();
 }
 
 template <class T>
@@ -86,24 +77,11 @@ const T TListSystem::TList<T>::Pop()
 {
     if (m_size == 0)
     {
-        firstNode = nullptr;
-        lastNode  = nullptr;
-        selectedNode = nullptr;
-
-        delete firstNode;
-        delete lastNode;
-        delete selectedNode;
+        DeleteNodes();
     }
     else if (m_size == 1)
     {
-        firstNode = nullptr;
-        lastNode  = nullptr;
-        selectedNode = nullptr;
-
-        delete firstNode;
-        delete lastNode;
-        delete selectedNode;
-
+        DeleteNodes();
         m_size --;
     }
     else
@@ -129,4 +107,25 @@ void TListSystem::TList<T>::Reset()
     {
         Pop();
     }
+}
+
+template <class T>
+void TListSystem::TList<T>::InitNodes()
+{
+    firstNode = nullptr;
+    lastNode  = nullptr;
+    selectedNode = nullptr;
+    m_size = 0;
+}
+
+template <class T>
+void TListSystem::TList<T>::DeleteNodes()
+{
+    firstNode = nullptr;
+    lastNode  = nullptr;
+    selectedNode = nullptr;
+    
+    delete firstNode;
+    delete lastNode;
+    delete selectedNode;
 }
